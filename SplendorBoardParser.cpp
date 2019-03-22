@@ -21,7 +21,15 @@ static Board boardParser(const string& input) {
         cout << "Read round=" << round << endl;
         cout << "Read player_name=" << player_name << endl;
 #endif
-        Board board(round, player_name);
+        // Table
+        Table table(value["table"]);
+        // Player
+        Json::Value playersVal = value["players"];
+        vector<Player> players;
+        for (int i = 0; i < playersVal.size(); i++) {
+            players.emplace_back(playersVal[i]);
+        }
+        Board board(round, player_name, table, players);
         return board;
     }
     else

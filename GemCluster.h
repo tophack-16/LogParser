@@ -9,18 +9,29 @@
 #include <string>
 #include <map>
 #include <vector>
+#include "json/json.h"
 
 using namespace std;
 
 class GemCluster {
-private:
+public:
     map<string, int> gems;
     static const vector<string> colors;
 
-public:
     GemCluster() {
         for (string color: colors)
             gems[color] = 0;
+    }
+
+    GemCluster(string color):GemCluster() {
+        gems[color]++;
+    }
+
+    GemCluster(const Json::Value& list) {
+        for (int i = 0; i < list.size(); i++)
+        {
+            gems[list[i]["color"].asString()] = list[i]["count"].asInt();
+        }
     }
 
     friend bool operator <= (const GemCluster& a, const GemCluster& b) {
@@ -51,6 +62,13 @@ public:
             c.gems[color] = a.gems.at(color) - b.gems.at(color);
         }
         return c;
+    }
+
+    string toString() {
+        string s;
+        for (string color: colors)
+            s += color.substr(0, 1) + "=" + to_string(gems[color]) + ", ";
+        return s;
     }
 };
 

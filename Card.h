@@ -7,31 +7,52 @@
 
 #include <string>
 #include "GemCluster.h"
+#include "json/json.h"
 
 using namespace std;
 
-class Card {
-private:
-    int score;
-
-    void gemsParser() {
-
-    }
-
+class NormalCard {
 public:
-    Card(int _score = 0) {
-        score = _score;
-    }
-};
-
-class NormalCard: Card {
     int level;
+    int score;
     GemCluster color;
     GemCluster costs;
+
+    NormalCard(const Json::Value& value) {
+        level = value["level"].asInt();
+        score = value["score"].asInt();
+        color = GemCluster(value["color"].asString());
+        Json::Value costsVal = value["costs"];
+        costs = GemCluster(costsVal);
+    }
+
+    string toString() {
+        string s;
+        s += "NormalCard\n";
+        s += "level=" + to_string(level) + ", score=" + to_string(score) + '\n';
+        s += "color=" + color.toString() + '\n';
+        s += "costs=" + costs.toString();
+        return s;
+    }
 };
 
-class NobelCard: Card {
+class NobelCard {
+public:
+    int score;
     GemCluster requirements;
+
+    NobelCard(const Json::Value& value) {
+        score = value["score"].asInt();
+        requirements = GemCluster(value["requirements"]);
+    }
+
+    string toString() {
+            string s;
+            s += "NobelCard\n";
+            s += "score=" + to_string(score) + '\n';
+            s += "requirements=" + requirements.toString();
+            return s;
+    }
 };
 
 

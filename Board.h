@@ -20,8 +20,7 @@ private:
     vector<Player> players;
 
 public:
-    Board(int _round = -1, string _player_name="", Table _table = Table(),
-            vector<Player> _players = vector<Player>()) {
+    Board(int _round, string _player_name, Table _table, vector<Player> _players) {
         round = _round;
         player_name = _player_name;
         table = _table;
