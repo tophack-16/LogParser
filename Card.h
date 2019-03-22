@@ -18,9 +18,15 @@ public:
     GemCluster color;
     GemCluster costs;
 
+    NormalCard() {
+
+    }
+
     NormalCard(const Json::Value& value) {
         level = value["level"].asInt();
-        score = value["score"].asInt();
+        score = 0;
+        if (value["score"].isInt())
+            score = value["score"].asInt();
         color = GemCluster(value["color"].asString());
         Json::Value costsVal = value["costs"];
         costs = GemCluster(costsVal);
@@ -34,6 +40,10 @@ public:
         s += "costs=" + costs.toString();
         return s;
     }
+
+    friend bool operator == (const NormalCard& a, const NormalCard& b) {
+        return a.level == b.level && a.score == b.score && a.color == b.color && a.costs == b.costs;
+    }
 };
 
 class NobelCard {
@@ -41,8 +51,14 @@ public:
     int score;
     GemCluster requirements;
 
+    NobelCard() {
+
+    }
+
     NobelCard(const Json::Value& value) {
-        score = value["score"].asInt();
+        score = 0;
+        if (value["score"].isInt())
+            score = value["score"].asInt();
         requirements = GemCluster(value["requirements"]);
     }
 
@@ -52,6 +68,10 @@ public:
             s += "score=" + to_string(score) + '\n';
             s += "requirements=" + requirements.toString();
             return s;
+    }
+
+    friend bool operator == (const NobelCard& a, const NobelCard& b) {
+        return a.score == b.score && a.requirements == b.requirements;
     }
 };
 

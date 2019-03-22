@@ -7,6 +7,7 @@
 
 #include "GemCluster.h"
 #include "Card.h"
+#include "Move.h"
 
 class Table {
 public:

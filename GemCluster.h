@@ -23,15 +23,27 @@ public:
             gems[color] = 0;
     }
 
+    GemCluster(vector<string> v):GemCluster() {
+        for (string color: v)
+            gems.at(color)++;
+    }
+
     GemCluster(string color):GemCluster() {
         gems[color]++;
     }
 
-    GemCluster(const Json::Value& list) {
+    GemCluster(const Json::Value& list):GemCluster() {
         for (int i = 0; i < list.size(); i++)
         {
             gems[list[i]["color"].asString()] = list[i]["count"].asInt();
         }
+    }
+
+    friend bool operator == (const GemCluster& a, const GemCluster& b) {
+        for (string color: colors) {
+            if (a.gems.at(color) != b.gems.at(color)) return false;
+        }
+        return true;
     }
 
     friend bool operator <= (const GemCluster& a, const GemCluster& b) {
@@ -54,6 +66,12 @@ public:
             c.gems[color] = a.gems.at(color) + b.gems.at(color);
         }
         return c;
+    }
+
+    void operator += (const GemCluster& a) {
+        for (string color: colors) {
+            gems[color] = gems[color] + a.gems.at(color);
+        }
     }
 
     friend GemCluster operator - (const GemCluster& a, const GemCluster& b) {

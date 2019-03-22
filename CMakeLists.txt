@@ -12,4 +12,4 @@ add_executable(player jsoncpp.cpp
         GemCluster.cpp GemCluster.h
         Board.cpp Board.h
         Table.cpp Table.h
-        SplendorBoardParser.cpp)
+        SplendorBoardParser.cpp SplendorLogParser.cpp Move.cpp Move.h)

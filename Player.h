@@ -19,7 +19,8 @@ public:
     vector<NormalCard> reserved_cards;
     vector<NobelCard> nobles;
 
-    Player() {
+    Player(string _name = "") {
+        name = _name;
         score = 0;
     }
 

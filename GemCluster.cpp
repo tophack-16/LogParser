@@ -4,4 +4,4 @@
 
 #include "GemCluster.h"
 
-const vector<string> GemCluster::colors = {"red", "green", "blue", "while", "black", "gold"};
+const vector<string> GemCluster::colors = {"red", "green", "blue", "white", "black", "gold"};

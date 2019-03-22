@@ -5,6 +5,7 @@
 #include "stdbool.h"
 #include <assert.h>
 #include "SplendorBoardParser.cpp"
+#include "SplendorLogParser.cpp"
 
 using namespace std;
 using namespace Json;
@@ -54,6 +55,10 @@ int main(int argc, char **argv)
     ifstream fin(filename);
     while (getline(fin, line)) input += line;
     Board board = boardParser(input);
+    ifstream log_file("log.txt");
+    vector<string> lines;
+    while (getline(log_file, line)) lines.push_back(line);
+    logParser(lines);
 //    cout << input << endl;
     /*
     std::string strValue = "{\"key1\":\"value1\",\"array\":[{\"key2\":\"value2\"},{\"key2\":\"value3\"},{\"key2\":\"value4\"}]}";
