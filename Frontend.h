@@ -25,7 +25,7 @@ public:
     WINDOW* nobles;
     int row, col;
 
-    map<string, short> color2int;
+    map<string, int> color2int;
 
     static const int userHeight, userWidth;
     static const int frameMargin;  // 最靠边的框
@@ -33,21 +33,21 @@ public:
     static const int cardHeight, cardWidth;
 
     Frontend(const Board& board): board(board) {
+        color2int["red"] = COLOR_RED;
+        color2int["green"] = COLOR_GREEN;
+        color2int["blue"] = COLOR_BLUE;
+        color2int["gold"] = COLOR_YELLOW;
+        color2int["white"] = COLOR_WHITE;
+        color2int["black"] = COLOR_BLACK;
+
         initscr();
         noecho();
         raw();
         getmaxyx(stdscr, row, col);
         start_color();
         refresh();  // before refreshing windows
-        fill(board);
 
-        for (int i = 0; i < GemCluster::colors.size(); i++) {
-            color2int[GemCluster::colors[i]] = i + 1;
-            if (GemCluster::colors[i] == "red")
-                init_pair(i + 1, COLOR_RED, COLOR_RED);
-            else if (GemCluster::colors[i] == "blue")
-                init_pair(i + 1, COLOR_BLUE, COLOR_BLUE);
-        }
+        fill(board);
     }
 
     void fill(const Board& board) {
@@ -79,12 +79,28 @@ public:
                         frameMargin + i * cardHeight,
                         left + j * cardWidth, true);
                 if (idx > cardsVec.size() || cardsVec[idx].level != i + 1) continue;
-                wattron(cards[i][j], color2int[cardsVec[idx].color_str]);
+                // color
+                int color = color2int[cardsVec[idx].color_str];
+                init_pair(color + 1, COLOR_MAGENTA, color);
+                wattron(cards[i][j], COLOR_PAIR(color + 1));
+//                mvwprintw(cards[i][j], 1, 1, to_string(color2int[cardsVec[idx].color_str]).c_str());
                 mvwprintw(cards[i][j], 1, 1, cardsVec[idx].color_str.c_str());
-                wattroff(cards[i][j], COLOR_PAIR(color2int[cardsVec[idx].color_str]));
+                wattroff(cards[i][j], COLOR_PAIR(color + 1));
+                // score
                 if (cardsVec[idx].score > 0)
                     mvwprintw(cards[i][j], 1, cardWidth - 3,
                               to_string(cardsVec[idx].score).c_str());
+                // cost
+                int printedGems = 0;
+                for (auto iter: cardsVec[idx].costs.gems) {
+                    if (iter.second == 0) continue;
+                    int color = color2int[iter.first];
+                    init_pair(color + 1, color, color);
+                    wattron(cards[i][j], COLOR_PAIR(color + 1));
+                    mvwprintw(cards[i][j], cardHeight - 2, printedGems + 1, " ");
+                    wattroff(cards[i][j], COLOR_PAIR(color + 1));
+                    printedGems++;
+                }
                 idx++;
                 wrefresh(cards[i][j]);
             }
