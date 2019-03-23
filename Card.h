@@ -15,6 +15,7 @@ class NormalCard {
 public:
     int level;
     int score;
+    string color_str;
     GemCluster color;
     GemCluster costs;
 
@@ -27,16 +28,28 @@ public:
         score = 0;
         if (value["score"].isInt())
             score = value["score"].asInt();
-        color = GemCluster(value["color"].asString());
+        color_str = value["color"].asString();
+        color = GemCluster(color_str);
         Json::Value costsVal = value["costs"];
         costs = GemCluster(costsVal);
+    }
+
+    Json::Value toJson() {
+        Json::Value value;
+        value["level"] = level;
+        if (score > 0)
+            value["score"] = score;
+        value["color"] = color_str;
+        value["costs"] = costs.toJson();
+//        cout << "Card: " << value.size() << endl;
+        return value;
     }
 
     string toString() {
         string s;
         s += "NormalCard\n";
         s += "level=" + to_string(level) + ", score=" + to_string(score) + '\n';
-        s += "color=" + color.toString() + '\n';
+        s += "color=" + color_str + '\n';
         s += "costs=" + costs.toString();
         return s;
     }
@@ -60,6 +73,14 @@ public:
         if (value["score"].isInt())
             score = value["score"].asInt();
         requirements = GemCluster(value["requirements"]);
+    }
+
+    Json::Value toJson() {
+        Json::Value value;
+        if (score > 0)
+            value["score"] = score;
+        value["requirements"] = requirements.toJson();
+        return value;
     }
 
     string toString() {

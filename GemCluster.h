@@ -39,6 +39,17 @@ public:
         }
     }
 
+    Json::Value toJson() {
+        Json::Value value = Json::arrayValue;
+        for (string color: colors)
+            if (gems[color] > 0) {
+                Json::Value gemVal;
+                gemVal[color] = gems[color];
+                value.append(gemVal);
+            }
+        return value;
+    }
+
     friend bool operator == (const GemCluster& a, const GemCluster& b) {
         for (string color: colors) {
             if (a.gems.at(color) != b.gems.at(color)) return false;
@@ -46,16 +57,17 @@ public:
         return true;
     }
 
-    friend bool operator <= (const GemCluster& a, const GemCluster& b) {
-        for (string color: colors) {
-            if (a.gems.at(color) > b.gems.at(color)) return false;
-        }
-        return true;
-    }
-
     friend bool operator >= (const GemCluster& a, const GemCluster& b) {
+        // TODO：这是特殊情况，b的gold必为0
+        int gold_num = a.gems.at("gold");
         for (string color: colors) {
-            if (a.gems.at(color) < b.gems.at(color)) return false;
+            if (color != "gold") {
+                if (a.gems.at(color) < b.gems.at(color)) {
+                    if (b.gems.at(color) - a.gems.at(color) <= gold_num)
+                        gold_num -= b.gems.at(color) - a.gems.at(color);
+                    else return false;
+                }
+            }
         }
         return true;
     }
@@ -75,9 +87,18 @@ public:
     }
 
     friend GemCluster operator - (const GemCluster& a, const GemCluster& b) {
+        // TODO：这是特殊情况，b的gold必为0
         GemCluster c;
+        int gold_num = a.gems.at("gold");
         for (string color: colors) {
-            c.gems[color] = a.gems.at(color) - b.gems.at(color);
+            if (color != "gold") {
+                if (a.gems.at(color) < b.gems.at(color)) {
+                    gold_num -= b.gems.at(color) - a.gems.at(color);
+                }
+                else
+                    c.gems[color] = a.gems.at(color) - b.gems.at(color);
+            }
+            c.gems["gold"] = gold_num;
         }
         return c;
     }

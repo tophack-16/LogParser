@@ -2,6 +2,7 @@
 // Created by zhanghuimeng on 19-3-23.
 //
 
+#include <fstream>
 #include "Board.h"
 #include "json/json.h"
 #include "Move.h"
@@ -49,7 +50,8 @@ static void logParser(const vector<string>& input) {
     int curRound = -1;
     int highScore = 0;
     string player;
-    while (i < input.size()) {
+    bool ended = false;
+    while (i < input.size() && !ended) {
         if (input[i] == "Game starts!") {
             cout << "The game is starting" << endl;
             i++;
@@ -60,23 +62,29 @@ static void logParser(const vector<string>& input) {
             i += 2;
             // Read start table
             string table_str = readJson(input, i);
-//            cout << table_str << endl;
-            if (reader.parse(table_str, value))
-                table = Table(value);
-            cout << "Test table reading: " << table.gems.toString() << endl;
+            cout << table_str << endl;
+            reader.parse(table_str, value);
+            table = Table(value);
+            cout << "Test table reading: " << table.gems.toString() << ' ' << table.cards.size() << endl;
             // Create Board
             board.table = table;
             for (string p: players)
                 board.players.emplace_back(p);
+            ofstream fout("temp_board.json");
+            Json::StyledStreamWriter writer;
+            writer.write(fout, board.toJson());
+            fout.close();
             continue;
         }
         // 一轮开始
         if (input[i].substr(0, 6) == "Round ") {
+            if (curRound != -1)
+                cout << "Round " << curRound << " end" << endl;
             curRound = stoi(input[i].substr(6, input[i].length() - 6));
             i++;
             highScore = stoi(input[i].substr(15, input[i].length() - 15));
             i++;
-            cout << curRound << ' ' << highScore << ' ' << endl;
+            cout << "========= Round " << curRound << " begin ========" << endl;
             continue;
         }
         // "Player player_example's turn"
@@ -103,7 +111,6 @@ static void logParser(const vector<string>& input) {
                 reader.parse(card_str, value);
                 card = NormalCard(value);
                 board.table.cards.push_back(card);
-                // TODO: 把黄金加上
                 i++;  // "Successfully reserved the card."
                 cout << "The card added: " << card.toString() << endl;
                 cout << "-------end of turn--------" << endl;
@@ -139,7 +146,20 @@ static void logParser(const vector<string>& input) {
                 reader.parse(card_str, value);
                 card = NormalCard(value);
                 Move move(player, Move::Type::BUY_RES);
+                move.card = card;
+                board.execute(move);
+                i++;  // "Successfully purchased the reserved card."
+                cout << "After buying card: " << board.getPlayerGembyName(player).toString() << endl;
+                cout << "-------end of turn--------" << endl;
+                continue;
             }
+        }
+        if (input[i] == "Final status of players.") {
+            cout << "The contest has ended." << endl;
+            for (int j = 0; j < board.players.size(); j++)
+                cout << "Player " << board.players[j].name << ": " << board.players[j].score << endl;
+            ended = true;
+            break;
         }
     }
 }

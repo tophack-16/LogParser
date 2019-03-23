@@ -23,6 +23,7 @@ static Board boardParser(const string& input) {
 #endif
         // Table
         Table table(value["table"]);
+        cout << table.cards.size() << endl;
         // Player
         Json::Value playersVal = value["players"];
         vector<Player> players;

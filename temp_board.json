@@ -1,0 +1,444 @@
+
+{
+	"playerName" : "",
+	"players" : 
+	[
+		
+		{
+			"gems" : [],
+			"name" : "player_example_1",
+			"score" : 0
+		},
+		
+		{
+			"gems" : [],
+			"name" : "player_example_2",
+			"score" : 0
+		},
+		
+		{
+			"gems" : [],
+			"name" : "player_example_3",
+			"score" : 0
+		}
+	],
+	"round" : 0,
+	"table" : 
+	{
+		"cards" : 
+		[
+			
+			{
+				"color" : "black",
+				"costs" : 
+				[
+					
+					{
+						"red" : 7
+					},
+					
+					{
+						"black" : 3
+					}
+				],
+				"level" : 3,
+				"score" : 5
+			},
+			
+			{
+				"color" : "black",
+				"costs" : 
+				[
+					
+					{
+						"green" : 2
+					},
+					
+					{
+						"blue" : 2
+					},
+					
+					{
+						"white" : 3
+					}
+				],
+				"level" : 2,
+				"score" : 1
+			},
+			
+			{
+				"color" : "white",
+				"costs" : 
+				[
+					
+					{
+						"blue" : 1
+					},
+					
+					{
+						"white" : 3
+					},
+					
+					{
+						"black" : 1
+					}
+				],
+				"level" : 1
+			},
+			
+			{
+				"color" : "red",
+				"costs" : 
+				[
+					
+					{
+						"green" : 3
+					},
+					
+					{
+						"blue" : 5
+					},
+					
+					{
+						"white" : 3
+					},
+					
+					{
+						"black" : 3
+					}
+				],
+				"level" : 3,
+				"score" : 3
+			},
+			
+			{
+				"color" : "red",
+				"costs" : 
+				[
+					
+					{
+						"black" : 5
+					}
+				],
+				"level" : 2,
+				"score" : 2
+			},
+			
+			{
+				"color" : "black",
+				"costs" : 
+				[
+					
+					{
+						"red" : 1
+					},
+					
+					{
+						"green" : 2
+					}
+				],
+				"level" : 1
+			},
+			
+			{
+				"color" : "green",
+				"costs" : 
+				[
+					
+					{
+						"red" : 1
+					},
+					
+					{
+						"blue" : 1
+					},
+					
+					{
+						"white" : 1
+					},
+					
+					{
+						"black" : 1
+					}
+				],
+				"level" : 1
+			},
+			
+			{
+				"color" : "white",
+				"costs" : 
+				[
+					
+					{
+						"red" : 2
+					},
+					
+					{
+						"black" : 1
+					}
+				],
+				"level" : 1
+			},
+			
+			{
+				"color" : "white",
+				"costs" : 
+				[
+					
+					{
+						"white" : 6
+					}
+				],
+				"level" : 2,
+				"score" : 3
+			},
+			
+			{
+				"color" : "black",
+				"costs" : 
+				[
+					
+					{
+						"red" : 7
+					}
+				],
+				"level" : 3,
+				"score" : 4
+			},
+			
+			{
+				"color" : "red",
+				"costs" : 
+				[
+					
+					{
+						"red" : 6
+					}
+				],
+				"level" : 2,
+				"score" : 3
+			},
+			
+			{
+				"color" : "blue",
+				"costs" : 
+				[
+					
+					{
+						"blue" : 3
+					},
+					
+					{
+						"white" : 6
+					},
+					
+					{
+						"black" : 3
+					}
+				],
+				"level" : 3,
+				"score" : 4
+			}
+		],
+		"gems" : 
+		[
+			
+			{
+				"red" : 5
+			},
+			
+			{
+				"green" : 5
+			},
+			
+			{
+				"blue" : 5
+			},
+			
+			{
+				"white" : 5
+			},
+			
+			{
+				"black" : 5
+			},
+			
+			{
+				"gold" : 5
+			}
+		],
+		"nobles" : 
+		[
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"red" : 3
+					},
+					
+					{
+						"green" : 3
+					},
+					
+					{
+						"blue" : 3
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"green" : 3
+					},
+					
+					{
+						"blue" : 3
+					},
+					
+					{
+						"white" : 3
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"red" : 4
+					},
+					
+					{
+						"black" : 4
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"red" : 4
+					},
+					
+					{
+						"green" : 4
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"blue" : 4
+					},
+					
+					{
+						"white" : 4
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"blue" : 3
+					},
+					
+					{
+						"white" : 3
+					},
+					
+					{
+						"black" : 3
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"white" : 4
+					},
+					
+					{
+						"black" : 4
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"green" : 4
+					},
+					
+					{
+						"blue" : 4
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"red" : 3
+					},
+					
+					{
+						"green" : 3
+					},
+					
+					{
+						"black" : 3
+					}
+				],
+				"score" : 3
+			},
+			
+			{
+				"requirements" : 
+				[
+					
+					{
+						"red" : 3
+					},
+					
+					{
+						"white" : 3
+					},
+					
+					{
+						"black" : 3
+					}
+				],
+				"score" : 3
+			}
+		]
+	}
+}

@@ -30,7 +30,6 @@ public:
             score = value.asInt();
         if (value["gems"].isArray())
             gems = GemCluster(value["gems"]);
-        // TODO：确定此位置是否为驼峰输入
         if (value["purchasedCards"].isArray()) {
             for (int i = 0; i < value["purchasedCards"].size(); i++)
                 purchased_cards.emplace_back(value["purchasedCards"][i]);
@@ -43,6 +42,45 @@ public:
             for (int i = 0; i < value["nobles"].size(); i++)
                 nobles.emplace_back(value["nobles"][i]);
         }
+    }
+
+    Json::Value toJson() {
+        Json::Value value;
+        value["name"] = name;
+        value["score"] = score;
+        value["gems"] = gems.toJson();
+        if (purchased_cards.size() > 0) {
+            Json::Value purchasedVal = Json::arrayValue;
+            for (int i = 0; i < purchased_cards.size(); i++)
+                purchasedVal.append(purchased_cards[i].toJson());
+            value["purchasedCards"] = purchasedVal;
+        }
+        if (reserved_cards.size() > 0) {
+            Json::Value reservedVal = Json::arrayValue;
+            for (int i = 0; i < reserved_cards.size(); i++)
+                reservedVal.append(reserved_cards[i].toJson());
+            value["reservedCards"] = reservedVal;
+        }
+        return value;
+    }
+
+    bool canBuyCard(NormalCard card) {
+        // 减去红利
+        for (int i = 0; i < purchased_cards.size(); i++) {
+            if (card.costs.gems[purchased_cards[i].color_str] > 0)
+                card.costs.gems[purchased_cards[i].color_str]--;
+        }
+        return gems >= card.costs;
+    }
+
+    void buyCard(NormalCard card) {
+        // 减去红利
+        for (int i = 0; i < purchased_cards.size(); i++) {
+            if (card.costs.gems[purchased_cards[i].color_str] > 0)
+                card.costs.gems[purchased_cards[i].color_str]--;
+        }
+        gems = gems - card.costs;
+        score += card.score;
     }
 };
 

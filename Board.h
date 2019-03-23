@@ -21,6 +21,7 @@ public:
     vector<Player> players;
 
     Board() {
+        round = 0;
     }
 
     Board(int _round, string _player_name, Table _table, vector<Player> _players) {
@@ -30,8 +31,34 @@ public:
         players = _players;
     }
 
+    Board(Json::Value value) {
+        round = value["round"].asInt();
+        player_name = value["playerName"].asString();
+        table = Table(value["table"]);
+        Json::Value playersVal = value["players"];
+        vector<Player> players;
+        for (int i = 0; i < playersVal.size(); i++) {
+            players.emplace_back(playersVal[i]);
+        }
+    }
+
+    Json::Value toJson() {
+        Json::Value value;
+        value["round"] = round;
+        value["playerName"] = player_name;
+        value["table"] = table.toJson();
+        Json::Value playersVal = Json::arrayValue;
+        for (int i = 0; i < players.size(); i++) {
+            playersVal.append(players[i].toJson());
+        }
+        value["players"] = playersVal;
+        return value;
+    }
+
     void execute(const Move& move) {
         bool f;
+        bool found_card;
+        bool money_enough;
         switch (move.type) {
             case Move::Type::RES1:
                 f = false;
@@ -49,6 +76,10 @@ public:
                 for (int i = 0; i < players.size(); i++) {
                     if (players[i].name == move.player) {
                         players[i].reserved_cards.push_back(move.card);
+                        if (table.gems.gems["gold"] > 0) {
+                            players[i].gems.gems["gold"]++;
+                            table.gems.gems["gold"]--;
+                        }
                         f = true;
                         break;
                     }
@@ -65,6 +96,32 @@ public:
                     }
                 }
                 if (!f) cout << "Can't find player" << endl;
+                break;
+            case Move::Type::BUY_RES:
+                f = false;
+                for (int i = 0; i < players.size(); i++) {
+                    if (players[i].name == move.player) {
+                        f = true;
+                        found_card = false;
+                        for (int j = 0; j < players[i].reserved_cards.size(); i++) {
+                            if (players[i].reserved_cards[j] == move.card) {
+                                found_card = true;
+                                if (players[i].canBuyCard(move.card)) {
+                                    players[i].buyCard(move.card);
+                                    players[i].reserved_cards.erase(players[i].reserved_cards.begin() + j);
+                                    break;
+                                }
+                                else
+                                    cout << "can't afford card" << endl;
+                                break;
+                            }
+                        }
+                        if (!found_card) cout << "can't find card" << endl;
+                        break;
+                    }
+                }
+                if (!f) cout << "Can't find player" << endl;
+                break;
             default:
                 break;
         }
