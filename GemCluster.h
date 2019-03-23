@@ -99,15 +99,15 @@ public:
                 else
                     c.gems[color] = a.gems.at(color) - b.gems.at(color);
             }
-            c.gems["gold"] = gold_num;
         }
+        c.gems["gold"] = gold_num;
         return c;
     }
 
     string toString() {
         string s;
         for (string color: colors)
-            s += color.substr(0, 1) + "=" + to_string(gems[color]) + ", ";
+            s += color + "=" + to_string(gems[color]) + ", ";
         return s;
     }
 };

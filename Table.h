@@ -33,6 +33,16 @@ public:
         }
     }
 
+    bool reserve(const NormalCard& card) {
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards[i] == card) {
+                cards.erase(cards.begin() + i);
+                return true;
+            }
+        }
+        return false;
+    }
+
     Json::Value toJson() {
         Json::Value value;
         value["gems"] = gems.toJson();

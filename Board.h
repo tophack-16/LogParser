@@ -62,66 +62,33 @@ public:
         bool money_enough;
         switch (move.type) {
             case Move::Type::RES1:
-                f = false;
-                for (int i = 0; i < table.cards.size(); i++) {
-//                    cout << table.cards[i].toString() << endl;
-                    if (table.cards[i] == move.card) {
-                        f = true;
-                        table.cards.erase(table.cards.begin() + i);
-                        break;
-                    }
+                if (!table.reserve(move.card)) {
+                    cout << "Can't find card" << endl;
+                    break;
                 }
-                if (!f) cout << "Can't find card" << endl;
-                f = false;
                 // TODO：假定这三个名字有不同……
-                for (int i = 0; i < players.size(); i++) {
-                    if (players[i].name == move.player) {
-                        players[i].reserved_cards.push_back(move.card);
-                        if (table.gems.gems["gold"] > 0) {
-                            players[i].gems.gems["gold"]++;
-                            table.gems.gems["gold"]--;
-                        }
-                        f = true;
-                        break;
-                    }
+                this->getPlayerByName(move.player).reserved_cards.push_back(move.card);
+                if (table.gems.gems["gold"] > 0) {
+                    this->getPlayerByName(move.player).gems.gems["gold"]++;
+                    table.gems.gems["gold"]--;
                 }
-                if (!f) cout << "Can't find player" << endl;
+                break;
+            case Move::Type::RES2:
+                // TODO：假定这三个名字有不同……
+                this->getPlayerByName(move.player).reserved_cards.push_back(move.card);
+                if (table.gems.gems["gold"] > 0) {
+                    this->getPlayerByName(move.player).gems.gems["gold"]++;
+                    table.gems.gems["gold"]--;
+                }
                 break;
             case Move::Type::DIFF_COL:
-                f = false;
-                for (int i = 0; i < players.size(); i++) {
-                    if (players[i].name == move.player) {
-                        players[i].gems += move.acqGem;
-                        f = true;
-                        break;
-                    }
-                }
-                if (!f) cout << "Can't find player" << endl;
+                this->getPlayerByName(move.player).gems += move.acqGem;
+                table.gems = table.gems - move.acqGem;
                 break;
             case Move::Type::BUY_RES:
-                f = false;
-                for (int i = 0; i < players.size(); i++) {
-                    if (players[i].name == move.player) {
-                        f = true;
-                        found_card = false;
-                        for (int j = 0; j < players[i].reserved_cards.size(); j++) {
-                            if (players[i].reserved_cards[j] == move.card) {
-                                found_card = true;
-                                if (players[i].canBuyCard(move.card)) {
-                                    players[i].buyCard(move.card);
-                                    players[i].reserved_cards.erase(players[i].reserved_cards.begin() + j);
-                                    break;
-                                }
-                                else
-                                    cout << "can't afford card" << endl;
-                                break;
-                            }
-                        }
-                        if (!found_card) cout << "can't find card" << endl;
-                        break;
-                    }
-                }
-                if (!f) cout << "Can't find player" << endl;
+                getPlayerByName(move.player).deleteReservedCard(move.card);
+                getPlayerByName(move.player).purchased_cards.push_back(move.card);
+                table.gems += getPlayerByName(move.player).buyCard(move.card);
                 break;
             default:
                 break;
@@ -134,6 +101,21 @@ public:
                 return players[i].gems;
         }
         cout << "can't find this player on board" << endl;
+    }
+
+    Player& getPlayerByName(const string& name) {
+        for (int i = 0; i < players.size(); i++) {
+            if (players[i].name == name)
+                return players[i];
+        }
+        cout << "can't find this player on board" << endl;
+    }
+
+    GemCluster calcGemSum() {
+        GemCluster sum = table.gems;
+        for (int i = 0; i < players.size(); i++)
+            sum += players[i].gems;
+        return sum;
     }
 };
 

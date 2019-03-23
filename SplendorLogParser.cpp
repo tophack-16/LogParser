@@ -33,7 +33,7 @@ static string readJson(const vector<string>& input, int& i) {
         table_str += input[i];
         i++;
     }
-    if (i < input.size()) {
+    if (input[i] == "}" && i < input.size()) {
         table_str += input[i];
         i++;
     }
@@ -78,10 +78,9 @@ static void logParser(const vector<string>& input) {
             Json::StyledStreamWriter writer;
             writer.write(fout, board.toJson());
             fout.close();
-            continue;
         }
         // 一轮开始
-        if (input[i].substr(0, 6) == "Round ") {
+        else if (input[i].substr(0, 6) == "Round ") {
             if (curRound != -1)
                 cout << "Round " << curRound << " end" << endl;
             curRound = stoi(input[i].substr(6, input[i].length() - 6));
@@ -93,7 +92,8 @@ static void logParser(const vector<string>& input) {
             continue;
         }
         // "Player player_example's turn"
-        if (input[i].substr(0, 7) == "Player " && input[i].substr(input[i].length() - 7, 7) == "'s turn") {
+        else if (input[i].find("Player ") != string::npos &&
+                input[i].find("'s turn") != string::npos) {
             player = input[i].substr(7, input[i].length() - 7);
             player = player.substr(0, player.length() - 7);
             // write to log
@@ -107,38 +107,66 @@ static void logParser(const vector<string>& input) {
             cout << "Turn " << curTurn << ' ' << player << endl;
             i++;
             curTurn++;
-            // RES1
+            // RES
             if (input[i].size() > 23 &&
                 input[i].substr(input[i].length() - 23, 23) == " is reserving the card.") {
                 i++;
-                // read card
-                string card_str = readJson(input, i);
-                NormalCard card;
-                reader.parse(card_str, value);
-                card = NormalCard(value);
-                Move move(player, Move::Type::RES1);
-                move.card = card;
-                cout << "The card to reserve: " << card.toString() << endl;
-                board.execute(move);
+                bool canGetGem = true;
+                // RES1
+                if (input[i].size() > 34 &&
+                    input[i].substr(input[i].length() - 34, 34) == " is reserving the card from table.") {
+                    i++;
+                    // read card
+                    string card_str = readJson(input, i);
+                    NormalCard card;
+                    reader.parse(card_str, value);
+                    card = NormalCard(value);
+                    Move move(player, Move::Type::RES1);
+                    move.card = card;
+                    cout << "The card to reserve from table: " << card.toString() << endl;
+                    if (board.table.gems.gems["gold"] == 0)
+                        canGetGem = false;
+                    board.execute(move);
+                }
+                // RES2
+                else if (input[i].find(" is reserving a card from level ") != string::npos) {
+                    i++;
+                    int level = input[i].back() - '0';
+                    // read card
+                    string card_str = readJson(input, i);
+                    NormalCard card;
+                    reader.parse(card_str, value);
+                    card = NormalCard(value);
+                    Move move(player, Move::Type::RES2);
+                    move.card = card;
+                    cout << "The card to reserve from level " << level << ": " << card.toString() << endl;
+                    if (board.table.gems.gems["gold"] == 0)
+                        canGetGem = false;
+                    board.execute(move);
+                }
                 i++;  // "A new Card on the table."
-                card_str = readJson(input, i);
+                string card_str = readJson(input, i);
                 reader.parse(card_str, value);
-                card = NormalCard(value);
+                NormalCard card = NormalCard(value);
                 board.table.cards.push_back(card);
-                i++;  // "Successfully reserved the card."
+//                if (canGetGem)
+                if (input[i] == "Got one gold gem.")
+                    i++;
+                if (input[i] == "Successfully reserved the card.")
+                    i++;
                 cout << "The card added: " << card.toString() << endl;
-                cout << "-------end of turn--------" << endl;
-                continue;
+                cout << "Player reserved card number: " << board.getPlayerByName(player).reserved_cards.size() << endl;
+                cout << "Player gems: " << board.getPlayerByName(player).gems.toString() << endl;
             }
             // DIFF_COL
-            if (input[i].size() > 33 &&
+            else if (input[i].size() > 33 &&
                 input[i].substr(input[i].length() - 33, 33) == " is getting different color gems.") {
                 // read colors
                 i++;
                 // "Successfully got red, green gems."
                 string s = input[i].substr(17, input[i].length() - 17);
                 s = s.substr(0, s.length() - 6);
-                cout << "gems: " << s << endl;
+                cout << "get gems: " << s << endl;
                 i++;
                 vector<string> colors;
                 tokenize(s, colors, ", ");
@@ -146,12 +174,10 @@ static void logParser(const vector<string>& input) {
                 Move move(player, Move::Type::DIFF_COL);
                 move.acqGem = acqGems;
                 board.execute(move);
-                cout << "After getting gems: " << board.getPlayerGembyName(player).toString() << endl;
-                cout << "-------end of turn--------" << endl;
-                continue;
+                cout << "Player gems: " << board.getPlayerGembyName(player).toString() << endl;
             }
             // BUY_RES
-            if (input[i].size() > 33 &&
+            else if (input[i].size() > 33 &&
                 input[i].substr(input[i].length() - 33, 33) == " is purchasing the reserved card.") {
                 i++;
                 // read card
@@ -163,12 +189,13 @@ static void logParser(const vector<string>& input) {
                 move.card = card;
                 board.execute(move);
                 i++;  // "Successfully purchased the reserved card."
-                cout << "After buying card: " << board.getPlayerGembyName(player).toString() << endl;
-                cout << "-------end of turn--------" << endl;
-                continue;
+                cout << "Player Capacity: " << board.getPlayerByName(player).getCapacity().toString() << endl;
+                cout << "Card cost: " << card.costs.toString() << endl;
+                cout << "Player reserved card number: " << board.getPlayerByName(player).reserved_cards.size() << endl;
+                cout << "Player gems: " << board.getPlayerGembyName(player).toString() << endl;
             }
         }
-        if (input[i] == "Final status of players.") {
+        else if (input[i] == "Final status of players.") {
             cout << "The contest has ended." << endl;
             i++;
             Json::Value playersStatList = Json::arrayValue;
@@ -178,9 +205,10 @@ static void logParser(const vector<string>& input) {
                 playersStatList.append(value);
             }
             statsVal["playerFinalStats"] = playersStatList;
+            i++;
             continue;
         }
-        if (input[i] == "Final results.") {
+        else if (input[i] == "Final results.") {
             i++;
             // 输出统计信息
             ofstream fout("output/result.json");
@@ -212,5 +240,13 @@ static void logParser(const vector<string>& input) {
             fout.close();
             break;
         }
+        else {
+            cout << "what?" << endl;
+            cout << input[i] << endl;
+            break;
+        }
+        cout << "Board gems: " << board.table.gems.toString() << endl;
+        cout << "Gem sum: " << board.calcGemSum().toString() << endl;
+        cout << "-------end of turn--------" << endl;
     }
 }

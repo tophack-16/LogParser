@@ -1,0 +1,2877 @@
+Game starts!
+Players: hhh_1, hhh_2, hhh_3
+Starting table
+{
+  "gems": [{
+    "color": "red",
+    "count": 5
+  }, {
+    "color": "gold",
+    "count": 5
+  }, {
+    "color": "green",
+    "count": 5
+  }, {
+    "color": "blue",
+    "count": 5
+  }, {
+    "color": "white",
+    "count": 5
+  }, {
+    "color": "black",
+    "count": 5
+  }],
+  "cards": [{
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 1
+    }]
+  }, {
+    "level": 3,
+    "score": 4,
+    "color": "white",
+    "costs": [{
+      "color": "black",
+      "count": 7
+    }]
+  }, {
+    "level": 1,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "green",
+    "costs": [{
+      "color": "red",
+      "count": 3
+    }]
+  }, {
+    "level": 2,
+    "score": 1,
+    "color": "white",
+    "costs": [{
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "red",
+      "count": 2
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 2,
+    "score": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }, {
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 3,
+    "score": 3,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }, {
+      "color": "blue",
+      "count": 5
+    }, {
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "black",
+      "count": 3
+    }]
+  }, {
+    "level": 2,
+    "score": 2,
+    "color": "red",
+    "costs": [{
+      "color": "black",
+      "count": 5
+    }]
+  }, {
+    "level": 3,
+    "score": 4,
+    "color": "green",
+    "costs": [{
+      "color": "blue",
+      "count": 7
+    }]
+  }, {
+    "level": 3,
+    "score": 4,
+    "color": "red",
+    "costs": [{
+      "color": "green",
+      "count": 7
+    }]
+  }, {
+    "level": 2,
+    "score": 3,
+    "color": "black",
+    "costs": [{
+      "color": "black",
+      "count": 6
+    }]
+  }, {
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 2
+    }]
+  }],
+  "nobles": [{
+    "score": 3,
+    "requirements": [{
+      "color": "black",
+      "count": 4
+    }, {
+      "color": "white",
+      "count": 4
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "red",
+      "count": 4
+    }, {
+      "color": "green",
+      "count": 4
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "blue",
+      "count": 4
+    }, {
+      "color": "white",
+      "count": 4
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "black",
+      "count": 3
+    }, {
+      "color": "red",
+      "count": 3
+    }, {
+      "color": "white",
+      "count": 3
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "blue",
+      "count": 4
+    }, {
+      "color": "green",
+      "count": 4
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "black",
+      "count": 4
+    }, {
+      "color": "red",
+      "count": 4
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "black",
+      "count": 3
+    }, {
+      "color": "red",
+      "count": 3
+    }, {
+      "color": "green",
+      "count": 3
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "black",
+      "count": 3
+    }, {
+      "color": "blue",
+      "count": 3
+    }, {
+      "color": "white",
+      "count": 3
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "blue",
+      "count": 3
+    }, {
+      "color": "white",
+      "count": 3
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "blue",
+      "count": 3
+    }, {
+      "color": "red",
+      "count": 3
+    }]
+  }]
+}
+Round 1
+Highest score: 0
+Player hhh_1's turn
+hhh_1 is getting two same color gems.
+Successfully got two red gems.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got red, green, white gems.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got red, green, white gems.
+Round 2
+Highest score: 0
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got red, green, white gems.
+Player hhh_2's turn
+hhh_2 is getting two same color gems.
+Successfully got two blue gems.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got green, white, blue gems.
+Round 3
+Highest score: 0
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got green, white, blue gems.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got red, green, black gems.
+Round 4
+Highest score: 0
+Player hhh_1's turn
+hhh_1 is getting two same color gems.
+Successfully got two black gems.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got white, blue, black gems.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got black gems.
+Round 5
+Highest score: 0
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "red",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got red, blue gems.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "white",
+  "costs": [{
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "red",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "black",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 4
+  }, {
+    "color": "red",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Round 6
+Highest score: 1
+Player hhh_1's turn
+hhh_1 is getting two same color gems.
+Successfully got two red gems.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got red, green, black gems.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got red, green, black gems.
+Round 7
+Highest score: 1
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got green gems.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "black",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got red, white, black gems.
+Round 8
+Highest score: 1
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "black",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 4
+  }, {
+    "color": "red",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "green",
+  "costs": [{
+    "color": "blue",
+    "count": 5
+  }, {
+    "color": "green",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got green, blue, black gems.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got green gems.
+Round 9
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got red, green gems.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got red gems.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Round 10
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "black",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got green gems.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got green, white, black gems.
+Round 11
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got black gems.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "green",
+  "costs": [{
+    "color": "black",
+    "count": 4
+  }]
+}
+Successfully purchased the card.
+Round 12
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got green, blue, black gems.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got red, green, blue gems.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got red, green gems.
+Round 13
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got green gems.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 3,
+  "color": "red",
+  "costs": [{
+    "color": "red",
+    "count": 6
+  }]
+}
+Successfully purchased the card.
+Round 14
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got red, green, black gems.
+Player hhh_2's turn
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Round 15
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "white",
+  "costs": [{
+    "color": "green",
+    "count": 4
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+Player hhh_3's turn
+hhh_3 is getting two same color gems.
+Successfully got two white gems.
+Round 16
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "black",
+  "costs": [{
+    "color": "blue",
+    "count": 4
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "black",
+  "costs": [{
+    "color": "blue",
+    "count": 4
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got green, white, black gems.
+Round 17
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "red",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "red",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is getting two same color gems.
+Successfully got two blue gems.
+Round 18
+Highest score: 2
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 3
+  }, {
+    "color": "green",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got red, white, blue gems.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "green",
+  "costs": [{
+    "color": "black",
+    "count": 4
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Round 19
+Highest score: 3
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got blue, black gems.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got black gems.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Round 20
+Highest score: 3
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "green",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "green",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Round 21
+Highest score: 3
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is getting two same color gems.
+Successfully got two blue gems.
+Round 22
+Highest score: 3
+Player hhh_1's turn
+hhh_1 is getting different color gems.
+Successfully got red, white gems.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got red, blue gems.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "white",
+  "costs": [{
+    "color": "green",
+    "count": 4
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Round 23
+Highest score: 4
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Round 24
+Highest score: 4
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "red",
+  "costs": [{
+    "color": "black",
+    "count": 5
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "black",
+  "costs": [{
+    "color": "green",
+    "count": 5
+  }, {
+    "color": "red",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Round 25
+Highest score: 4
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "white",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+hhh_1 is being visited by the noble.
+{
+  "score": 3,
+  "requirements": [{
+    "color": "black",
+    "count": 3
+  }, {
+    "color": "red",
+    "count": 3
+  }, {
+    "color": "white",
+    "count": 3
+  }]
+}
+Successfully be visited by the noble.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got white, blue, black gems.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 4
+  }]
+}
+Successfully purchased the card.
+Round 26
+Highest score: 4
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 2
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 4
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got white, blue, black gems.
+Round 27
+Highest score: 4
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 3
+  }, {
+    "color": "green",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 3,
+  "color": "red",
+  "costs": [{
+    "color": "red",
+    "count": 6
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 3,
+  "color": "green",
+  "costs": [{
+    "color": "green",
+    "count": 6
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "blue",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Round 28
+Highest score: 5
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+A new card on the table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "red",
+    "count": 4
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "blue",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Round 29
+Highest score: 5
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 3,
+  "score": 3,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "blue",
+    "count": 5
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 3,
+  "score": 3,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "red",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 5
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 1,
+  "score": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "red",
+    "count": 4
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "red",
+  "costs": [{
+    "color": "white",
+    "count": 1
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Round 30
+Highest score: 7
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 1,
+  "color": "black",
+  "costs": [{
+    "color": "green",
+    "count": 1
+  }, {
+    "color": "red",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 1
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is getting different color gems.
+Successfully got red, green, blue gems.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "green",
+  "costs": [{
+    "color": "blue",
+    "count": 5
+  }, {
+    "color": "green",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 5
+  }]
+}
+Successfully purchased the card.
+Round 31
+Highest score: 7
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 3,
+  "score": 3,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "red",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 5
+  }]
+}
+A new card on the table.
+{
+  "level": 3,
+  "score": 4,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "blue",
+    "count": 6
+  }, {
+    "color": "green",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+Player hhh_3's turn
+hhh_3 is getting different color gems.
+Successfully got red, blue, black gems.
+Round 32
+Highest score: 10
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "black",
+  "costs": [{
+    "color": "green",
+    "count": 5
+  }, {
+    "color": "red",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "blue",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "blue",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 5
+  }, {
+    "color": "blue",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 3,
+  "color": "black",
+  "costs": [{
+    "color": "black",
+    "count": 6
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "white",
+  "costs": [{
+    "color": "red",
+    "count": 5
+  }]
+}
+Successfully purchased the card.
+Round 33
+Highest score: 12
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "white",
+  "costs": [{
+    "color": "red",
+    "count": 5
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 2
+  }]
+}
+Successfully purchased the card.
+hhh_1 is being visited by the noble.
+{
+  "score": 3,
+  "requirements": [{
+    "color": "blue",
+    "count": 4
+  }, {
+    "color": "white",
+    "count": 4
+  }]
+}
+Successfully be visited by the noble.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "black",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 2
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "blue",
+  "costs": [{
+    "color": "blue",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "black",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 3,
+  "color": "white",
+  "costs": [{
+    "color": "white",
+    "count": 6
+  }]
+}
+Successfully purchased the card.
+Round 34
+Highest score: 14
+Player hhh_1's turn
+hhh_1 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 5
+  }, {
+    "color": "blue",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 4
+  }]
+}
+Successfully purchased the card.
+hhh_1 is being visited by the noble.
+{
+  "score": 3,
+  "requirements": [{
+    "color": "black",
+    "count": 4
+  }, {
+    "color": "white",
+    "count": 4
+  }]
+}
+Successfully be visited by the noble.
+Player hhh_2's turn
+hhh_2 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "blue",
+  "costs": [{
+    "color": "white",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 4
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 3
+  }]
+}
+Successfully purchased the card.
+Player hhh_3's turn
+hhh_3 is purchasing the card from table.
+{
+  "level": 2,
+  "score": 1,
+  "color": "green",
+  "costs": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "green",
+    "count": 2
+  }, {
+    "color": "red",
+    "count": 3
+  }]
+}
+A new card on the table.
+{
+  "level": 2,
+  "score": 2,
+  "color": "green",
+  "costs": [{
+    "color": "green",
+    "count": 5
+  }]
+}
+Successfully purchased the card.
+Final status of players.
+{
+  "name": "hhh_1",
+  "score": 16,
+  "gems": [{
+    "color": "red",
+    "count": 1
+  }, {
+    "color": "white",
+    "count": 1
+  }],
+  "purchasedCards": [{
+    "level": 1,
+    "color": "green",
+    "costs": [{
+      "color": "red",
+      "count": 3
+    }]
+  }, {
+    "level": 2,
+    "score": 2,
+    "color": "black",
+    "costs": [{
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 4
+    }, {
+      "color": "red",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "black",
+      "count": 3
+    }]
+  }, {
+    "level": 1,
+    "color": "white",
+    "costs": [{
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 2
+    }, {
+      "color": "red",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "green",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "blue",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "white",
+    "costs": [{
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "red",
+    "costs": [{
+      "color": "blue",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "blue",
+      "count": 2
+    }, {
+      "color": "red",
+      "count": 1
+    }]
+  }, {
+    "level": 2,
+    "score": 2,
+    "color": "red",
+    "costs": [{
+      "color": "black",
+      "count": 5
+    }]
+  }, {
+    "level": 1,
+    "color": "white",
+    "costs": [{
+      "color": "blue",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 2
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 2
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "green",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "blue",
+      "count": 3
+    }, {
+      "color": "green",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 2
+    }, {
+      "color": "red",
+      "count": 2
+    }]
+  }, {
+    "level": 3,
+    "score": 3,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }, {
+      "color": "blue",
+      "count": 5
+    }, {
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "black",
+      "count": 3
+    }]
+  }, {
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 3
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 3,
+    "score": 3,
+    "color": "blue",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }, {
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "red",
+      "count": 3
+    }, {
+      "color": "black",
+      "count": 5
+    }]
+  }, {
+    "level": 2,
+    "score": 2,
+    "color": "black",
+    "costs": [{
+      "color": "green",
+      "count": 5
+    }, {
+      "color": "red",
+      "count": 3
+    }]
+  }, {
+    "level": 2,
+    "score": 2,
+    "color": "white",
+    "costs": [{
+      "color": "red",
+      "count": 5
+    }]
+  }, {
+    "level": 2,
+    "score": 2,
+    "color": "blue",
+    "costs": [{
+      "color": "white",
+      "count": 5
+    }, {
+      "color": "blue",
+      "count": 3
+    }]
+  }],
+  "nobles": [{
+    "score": 3,
+    "requirements": [{
+      "color": "black",
+      "count": 3
+    }, {
+      "color": "red",
+      "count": 3
+    }, {
+      "color": "white",
+      "count": 3
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "blue",
+      "count": 4
+    }, {
+      "color": "white",
+      "count": 4
+    }]
+  }, {
+    "score": 3,
+    "requirements": [{
+      "color": "black",
+      "count": 4
+    }, {
+      "color": "white",
+      "count": 4
+    }]
+  }]
+}
+{
+  "name": "hhh_3",
+  "score": 11,
+  "gems": [{
+    "color": "white",
+    "count": 3
+  }, {
+    "color": "blue",
+    "count": 1
+  }],
+  "purchasedCards": [{
+    "level": 2,
+    "score": 1,
+    "color": "white",
+    "costs": [{
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "red",
+      "count": 2
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "green",
+    "costs": [{
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 2
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 2,
+    "score": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }, {
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "score": 1,
+    "color": "green",
+    "costs": [{
+      "color": "black",
+      "count": 4
+    }]
+  }, {
+    "level": 1,
+    "color": "green",
+    "costs": [{
+      "color": "blue",
+      "count": 2
+    }, {
+      "color": "red",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "green",
+      "count": 3
+    }]
+  }, {
+    "level": 1,
+    "score": 1,
+    "color": "white",
+    "costs": [{
+      "color": "green",
+      "count": 4
+    }]
+  }, {
+    "level": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "white",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }, {
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "green",
+      "count": 2
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "green",
+      "count": 2
+    }, {
+      "color": "red",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "green",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "blue",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 2,
+    "score": 2,
+    "color": "green",
+    "costs": [{
+      "color": "blue",
+      "count": 5
+    }, {
+      "color": "green",
+      "count": 3
+    }]
+  }, {
+    "level": 2,
+    "score": 3,
+    "color": "black",
+    "costs": [{
+      "color": "black",
+      "count": 6
+    }]
+  }, {
+    "level": 2,
+    "score": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "blue",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "black",
+      "count": 3
+    }]
+  }, {
+    "level": 2,
+    "score": 1,
+    "color": "green",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }, {
+      "color": "green",
+      "count": 2
+    }, {
+      "color": "red",
+      "count": 3
+    }]
+  }]
+}
+{
+  "name": "hhh_2",
+  "score": 10,
+  "gems": [{
+    "color": "red",
+    "count": 2
+  }, {
+    "color": "green",
+    "count": 3
+  }, {
+    "color": "blue",
+    "count": 1
+  }, {
+    "color": "black",
+    "count": 2
+  }],
+  "purchasedCards": [{
+    "level": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 3
+    }]
+  }, {
+    "level": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "green",
+      "count": 3
+    }, {
+      "color": "red",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "score": 1,
+    "color": "black",
+    "costs": [{
+      "color": "blue",
+      "count": 4
+    }]
+  }, {
+    "level": 1,
+    "color": "white",
+    "costs": [{
+      "color": "red",
+      "count": 2
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "red",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "white",
+    "costs": [{
+      "color": "blue",
+      "count": 3
+    }]
+  }, {
+    "level": 1,
+    "color": "white",
+    "costs": [{
+      "color": "blue",
+      "count": 2
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 1,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }]
+  }, {
+    "level": 1,
+    "score": 1,
+    "color": "red",
+    "costs": [{
+      "color": "white",
+      "count": 4
+    }]
+  }, {
+    "level": 2,
+    "score": 3,
+    "color": "red",
+    "costs": [{
+      "color": "red",
+      "count": 6
+    }]
+  }, {
+    "level": 1,
+    "color": "green",
+    "costs": [{
+      "color": "white",
+      "count": 1
+    }, {
+      "color": "blue",
+      "count": 1
+    }, {
+      "color": "red",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 1
+    }]
+  }, {
+    "level": 1,
+    "score": 1,
+    "color": "blue",
+    "costs": [{
+      "color": "red",
+      "count": 4
+    }]
+  }, {
+    "level": 2,
+    "score": 1,
+    "color": "green",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "blue",
+      "count": 3
+    }, {
+      "color": "black",
+      "count": 2
+    }]
+  }, {
+    "level": 2,
+    "score": 1,
+    "color": "black",
+    "costs": [{
+      "color": "white",
+      "count": 3
+    }, {
+      "color": "blue",
+      "count": 2
+    }, {
+      "color": "green",
+      "count": 2
+    }]
+  }, {
+    "level": 2,
+    "score": 2,
+    "color": "blue",
+    "costs": [{
+      "color": "white",
+      "count": 2
+    }, {
+      "color": "red",
+      "count": 1
+    }, {
+      "color": "black",
+      "count": 4
+    }]
+  }]
+}
+Final results.
+hhh_1 got 16 score and purchased 22 cards
+hhh_3 got 11 score and purchased 19 cards
+hhh_2 got 10 score and purchased 16 cards

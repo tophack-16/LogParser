@@ -46,6 +46,24 @@ public:
         }
     }
 
+    bool deleteReservedCard(const NormalCard& card) {
+        for (int i = 0; i < reserved_cards.size(); i++) {
+            if (reserved_cards[i] == card) {
+                reserved_cards.erase(reserved_cards.begin() + i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    GemCluster getCapacity() {
+        GemCluster cap;
+        for (int i = 0; i < purchased_cards.size(); i++)
+            cap.gems[purchased_cards[i].color_str]++;
+        cap += gems;
+        return cap;
+    }
+
     Json::Value toJson() {
         Json::Value value;
         value["name"] = name;
@@ -75,14 +93,30 @@ public:
         return gems >= card.costs;
     }
 
-    void buyCard(NormalCard card) {
+    GemCluster calcUsedGems(NormalCard card) const {
+        GemCluster used;
+        for (string color: GemCluster::colors) {
+            if (color == "gold") continue;
+            if (gems.gems.at(color) < card.costs.gems[color]) {
+                used.gems["gold"] += card.costs.gems[color] - gems.gems.at(color);
+                used.gems[color] = gems.gems.at(color);
+            }
+            else
+                used.gems[color] = card.costs.gems[color];
+        }
+        return used;
+    }
+
+    GemCluster buyCard(NormalCard card) {
+        score += card.score;
         // 减去红利
         for (int i = 0; i < purchased_cards.size(); i++) {
             if (card.costs.gems[purchased_cards[i].color_str] > 0)
                 card.costs.gems[purchased_cards[i].color_str]--;
         }
+        GemCluster used = calcUsedGems(card);
         gems = gems - card.costs;
-        score += card.score;
+        return used;
     }
 };
 
