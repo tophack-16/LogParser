@@ -3,6 +3,7 @@
 
 *.tar.gz
 *.zip
+output/
 
 # User-specific stuff
 .idea/**/workspace.xml

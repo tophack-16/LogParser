@@ -29,16 +29,18 @@
 		[
 			
 			{
-				"color" : "black",
+				"color" : "green",
 				"costs" : 
 				[
 					
 					{
-						"red" : 7
+						"color" : "green",
+						"count" : 3
 					},
 					
 					{
-						"black" : 3
+						"color" : "blue",
+						"count" : 7
 					}
 				],
 				"level" : 3,
@@ -51,73 +53,18 @@
 				[
 					
 					{
-						"green" : 2
+						"color" : "red",
+						"count" : 2
 					},
 					
 					{
-						"blue" : 2
+						"color" : "green",
+						"count" : 4
 					},
 					
 					{
-						"white" : 3
-					}
-				],
-				"level" : 2,
-				"score" : 1
-			},
-			
-			{
-				"color" : "white",
-				"costs" : 
-				[
-					
-					{
-						"blue" : 1
-					},
-					
-					{
-						"white" : 3
-					},
-					
-					{
-						"black" : 1
-					}
-				],
-				"level" : 1
-			},
-			
-			{
-				"color" : "red",
-				"costs" : 
-				[
-					
-					{
-						"green" : 3
-					},
-					
-					{
-						"blue" : 5
-					},
-					
-					{
-						"white" : 3
-					},
-					
-					{
-						"black" : 3
-					}
-				],
-				"level" : 3,
-				"score" : 3
-			},
-			
-			{
-				"color" : "red",
-				"costs" : 
-				[
-					
-					{
-						"black" : 5
+						"color" : "blue",
+						"count" : 1
 					}
 				],
 				"level" : 2,
@@ -130,66 +77,50 @@
 				[
 					
 					{
-						"red" : 1
+						"color" : "green",
+						"count" : 2
 					},
 					
 					{
-						"green" : 2
-					}
-				],
-				"level" : 1
-			},
-			
-			{
-				"color" : "green",
-				"costs" : 
-				[
-					
-					{
-						"red" : 1
+						"color" : "blue",
+						"count" : 2
 					},
 					
 					{
-						"blue" : 1
-					},
-					
-					{
-						"white" : 1
-					},
-					
-					{
-						"black" : 1
-					}
-				],
-				"level" : 1
-			},
-			
-			{
-				"color" : "white",
-				"costs" : 
-				[
-					
-					{
-						"red" : 2
-					},
-					
-					{
-						"black" : 1
-					}
-				],
-				"level" : 1
-			},
-			
-			{
-				"color" : "white",
-				"costs" : 
-				[
-					
-					{
-						"white" : 6
+						"color" : "white",
+						"count" : 3
 					}
 				],
 				"level" : 2,
+				"score" : 1
+			},
+			
+			{
+				"color" : "black",
+				"costs" : 
+				[
+					
+					{
+						"color" : "red",
+						"count" : 3
+					},
+					
+					{
+						"color" : "green",
+						"count" : 5
+					},
+					
+					{
+						"color" : "blue",
+						"count" : 3
+					},
+					
+					{
+						"color" : "white",
+						"count" : 3
+					}
+				],
+				"level" : 3,
 				"score" : 3
 			},
 			
@@ -199,11 +130,50 @@
 				[
 					
 					{
-						"red" : 7
+						"color" : "red",
+						"count" : 6
+					},
+					
+					{
+						"color" : "green",
+						"count" : 3
+					},
+					
+					{
+						"color" : "black",
+						"count" : 3
 					}
 				],
 				"level" : 3,
 				"score" : 4
+			},
+			
+			{
+				"color" : "green",
+				"costs" : 
+				[
+					
+					{
+						"color" : "red",
+						"count" : 1
+					},
+					
+					{
+						"color" : "blue",
+						"count" : 1
+					},
+					
+					{
+						"color" : "white",
+						"count" : 1
+					},
+					
+					{
+						"color" : "black",
+						"count" : 2
+					}
+				],
+				"level" : 1
 			},
 			
 			{
@@ -212,11 +182,67 @@
 				[
 					
 					{
-						"red" : 6
+						"color" : "white",
+						"count" : 4
+					}
+				],
+				"level" : 1,
+				"score" : 1
+			},
+			
+			{
+				"color" : "white",
+				"costs" : 
+				[
+					
+					{
+						"color" : "red",
+						"count" : 2
+					},
+					
+					{
+						"color" : "black",
+						"count" : 1
+					}
+				],
+				"level" : 1
+			},
+			
+			{
+				"color" : "white",
+				"costs" : 
+				[
+					
+					{
+						"color" : "white",
+						"count" : 6
 					}
 				],
 				"level" : 2,
 				"score" : 3
+			},
+			
+			{
+				"color" : "red",
+				"costs" : 
+				[
+					
+					{
+						"color" : "red",
+						"count" : 1
+					},
+					
+					{
+						"color" : "white",
+						"count" : 1
+					},
+					
+					{
+						"color" : "black",
+						"count" : 3
+					}
+				],
+				"level" : 1
 			},
 			
 			{
@@ -225,46 +251,64 @@
 				[
 					
 					{
-						"blue" : 3
-					},
-					
-					{
-						"white" : 6
-					},
-					
-					{
-						"black" : 3
+						"color" : "white",
+						"count" : 7
 					}
 				],
 				"level" : 3,
 				"score" : 4
+			},
+			
+			{
+				"color" : "blue",
+				"costs" : 
+				[
+					
+					{
+						"color" : "blue",
+						"count" : 3
+					},
+					
+					{
+						"color" : "white",
+						"count" : 5
+					}
+				],
+				"level" : 2,
+				"score" : 2
 			}
 		],
 		"gems" : 
 		[
 			
 			{
-				"red" : 5
+				"color" : "red",
+				"count" : 5
 			},
 			
 			{
-				"green" : 5
+				"color" : "green",
+				"count" : 5
 			},
 			
 			{
-				"blue" : 5
+				"color" : "blue",
+				"count" : 5
 			},
 			
 			{
-				"white" : 5
+				"color" : "white",
+				"count" : 5
 			},
 			
 			{
-				"black" : 5
+				"color" : "black",
+				"count" : 5
 			},
 			
 			{
-				"gold" : 5
+				"color" : "gold",
+				"count" : 5
 			}
 		],
 		"nobles" : 
@@ -275,15 +319,13 @@
 				[
 					
 					{
-						"red" : 3
+						"color" : "green",
+						"count" : 4
 					},
 					
 					{
-						"green" : 3
-					},
-					
-					{
-						"blue" : 3
+						"color" : "blue",
+						"count" : 4
 					}
 				],
 				"score" : 3
@@ -294,15 +336,18 @@
 				[
 					
 					{
-						"green" : 3
+						"color" : "red",
+						"count" : 3
 					},
 					
 					{
-						"blue" : 3
+						"color" : "green",
+						"count" : 3
 					},
 					
 					{
-						"white" : 3
+						"color" : "black",
+						"count" : 3
 					}
 				],
 				"score" : 3
@@ -313,11 +358,18 @@
 				[
 					
 					{
-						"red" : 4
+						"color" : "blue",
+						"count" : 3
 					},
 					
 					{
-						"black" : 4
+						"color" : "white",
+						"count" : 3
+					},
+					
+					{
+						"color" : "black",
+						"count" : 3
 					}
 				],
 				"score" : 3
@@ -328,11 +380,13 @@
 				[
 					
 					{
-						"red" : 4
+						"color" : "red",
+						"count" : 4
 					},
 					
 					{
-						"green" : 4
+						"color" : "black",
+						"count" : 4
 					}
 				],
 				"score" : 3
@@ -343,11 +397,13 @@
 				[
 					
 					{
-						"blue" : 4
+						"color" : "blue",
+						"count" : 4
 					},
 					
 					{
-						"white" : 4
+						"color" : "white",
+						"count" : 4
 					}
 				],
 				"score" : 3
@@ -358,15 +414,18 @@
 				[
 					
 					{
-						"blue" : 3
+						"color" : "red",
+						"count" : 3
 					},
 					
 					{
-						"white" : 3
+						"color" : "green",
+						"count" : 3
 					},
 					
 					{
-						"black" : 3
+						"color" : "blue",
+						"count" : 3
 					}
 				],
 				"score" : 3
@@ -377,11 +436,18 @@
 				[
 					
 					{
-						"white" : 4
+						"color" : "red",
+						"count" : 3
 					},
 					
 					{
-						"black" : 4
+						"color" : "white",
+						"count" : 3
+					},
+					
+					{
+						"color" : "black",
+						"count" : 3
 					}
 				],
 				"score" : 3
@@ -392,11 +458,13 @@
 				[
 					
 					{
-						"green" : 4
+						"color" : "white",
+						"count" : 4
 					},
 					
 					{
-						"blue" : 4
+						"color" : "black",
+						"count" : 4
 					}
 				],
 				"score" : 3
@@ -407,15 +475,18 @@
 				[
 					
 					{
-						"red" : 3
+						"color" : "green",
+						"count" : 3
 					},
 					
 					{
-						"green" : 3
+						"color" : "blue",
+						"count" : 3
 					},
 					
 					{
-						"black" : 3
+						"color" : "white",
+						"count" : 3
 					}
 				],
 				"score" : 3
@@ -426,15 +497,13 @@
 				[
 					
 					{
-						"red" : 3
+						"color" : "red",
+						"count" : 4
 					},
 					
 					{
-						"white" : 3
-					},
-					
-					{
-						"black" : 3
+						"color" : "green",
+						"count" : 4
 					}
 				],
 				"score" : 3

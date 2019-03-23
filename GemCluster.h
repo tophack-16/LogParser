@@ -44,7 +44,8 @@ public:
         for (string color: colors)
             if (gems[color] > 0) {
                 Json::Value gemVal;
-                gemVal[color] = gems[color];
+                gemVal["color"] = color;
+                gemVal["count"] = gems[color];
                 value.append(gemVal);
             }
         return value;

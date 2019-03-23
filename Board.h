@@ -34,9 +34,10 @@ public:
     Board(Json::Value value) {
         round = value["round"].asInt();
         player_name = value["playerName"].asString();
+//        cout << player_name << endl;
         table = Table(value["table"]);
+//        cout << table.cards.size() << endl;
         Json::Value playersVal = value["players"];
-        vector<Player> players;
         for (int i = 0; i < playersVal.size(); i++) {
             players.emplace_back(playersVal[i]);
         }
@@ -103,7 +104,7 @@ public:
                     if (players[i].name == move.player) {
                         f = true;
                         found_card = false;
-                        for (int j = 0; j < players[i].reserved_cards.size(); i++) {
+                        for (int j = 0; j < players[i].reserved_cards.size(); j++) {
                             if (players[i].reserved_cards[j] == move.card) {
                                 found_card = true;
                                 if (players[i].canBuyCard(move.card)) {

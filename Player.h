@@ -26,8 +26,10 @@ public:
 
     Player(const Json::Value& value): Player() {
         name = value["name"].asString();
-        if (value["score"].isInt())
-            score = value.asInt();
+//        cout << name << endl;
+        if (value["score"].isInt()) {
+            score = value["score"].asInt();
+        }
         if (value["gems"].isArray())
             gems = GemCluster(value["gems"]);
         if (value["purchasedCards"].isArray()) {

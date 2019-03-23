@@ -43,11 +43,14 @@ static string readJson(const vector<string>& input, int& i) {
 static void logParser(const vector<string>& input) {
     Json::Reader reader;
     Json::Value value;
+    Json::Value statsVal;  // 统计数据
     int i = 0;
     vector<string> players;
+    int num_players;
     Table table;
     Board board;
     int curRound = -1;
+    int curTurn = -1;
     int highScore = 0;
     string player;
     bool ended = false;
@@ -59,6 +62,7 @@ static void logParser(const vector<string>& input) {
             tokenize(s, players, ", ");
             for (string s: players)
                 cout << s << endl;
+            num_players = players.size();
             i += 2;
             // Read start table
             string table_str = readJson(input, i);
@@ -81,6 +85,7 @@ static void logParser(const vector<string>& input) {
             if (curRound != -1)
                 cout << "Round " << curRound << " end" << endl;
             curRound = stoi(input[i].substr(6, input[i].length() - 6));
+            curTurn = 1;
             i++;
             highScore = stoi(input[i].substr(15, input[i].length() - 15));
             i++;
@@ -91,8 +96,17 @@ static void logParser(const vector<string>& input) {
         if (input[i].substr(0, 7) == "Player " && input[i].substr(input[i].length() - 7, 7) == "'s turn") {
             player = input[i].substr(7, input[i].length() - 7);
             player = player.substr(0, player.length() - 7);
-            cout << "Turn: " << player << endl;
+            // write to log
+            board.player_name = player;
+            ofstream fout("output/board_round_" + to_string(curRound) +
+                "_turn_" + to_string(curTurn) + ".json");
+            Json::StyledStreamWriter writer;
+            writer.write(fout, board.toJson());
+            fout.close();
+
+            cout << "Turn " << curTurn << ' ' << player << endl;
             i++;
+            curTurn++;
             // RES1
             if (input[i].size() > 23 &&
                 input[i].substr(input[i].length() - 23, 23) == " is reserving the card.") {
@@ -156,9 +170,46 @@ static void logParser(const vector<string>& input) {
         }
         if (input[i] == "Final status of players.") {
             cout << "The contest has ended." << endl;
+            i++;
+            Json::Value playersStatList = Json::arrayValue;
+            for (int j = 0; j < players.size(); j++) {
+                string player_str = readJson(input, i);
+                reader.parse(player, value);
+                playersStatList.append(value);
+            }
+            statsVal["playerFinalStats"] = playersStatList;
+            continue;
+        }
+        if (input[i] == "Final results.") {
+            i++;
+            // 输出统计信息
+            ofstream fout("output/result.json");
             for (int j = 0; j < board.players.size(); j++)
                 cout << "Player " << board.players[j].name << ": " << board.players[j].score << endl;
             ended = true;
+            // player_example_3 got 16 score and purchased 21 cards
+            // player_example_1 got 15 score and purchased 20 cards
+            // player_example_2 got 11 score and purchased 17 cards
+            statsVal["numPlayers"] = num_players;
+            statsVal["round"] = curRound;
+            Json::Value playersVal = Json::arrayValue;
+            while (i < input.size() &&
+                    input[i].find(" score and purchased ") != std::string::npos &&
+                    input[i].find(" cards") != std::string::npos) {
+                string::size_type pos1 = input[i].find(" got ");
+                string::size_type pos2 = input[i].find(" score and purchased ");
+                string::size_type pos3 = input[i].find(" cards");
+                Json::Value playerVal;
+                playerVal["name"] = input[i].substr(0, pos1);
+                playerVal["score"] = stoi(input[i].substr(pos1 + 5, pos2 - pos1 - 5));
+                playerVal["cards"] = stoi(input[i].substr(pos2 + 21, pos3 - pos2 - 21));
+                playersVal.append(playerVal);
+                i++;
+            }
+            statsVal["players"] = playersVal;
+            Json::StyledStreamWriter writer;
+            writer.write(fout, statsVal);
+            fout.close();
             break;
         }
     }
