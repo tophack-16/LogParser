@@ -57,6 +57,10 @@ public:
     friend bool operator == (const NormalCard& a, const NormalCard& b) {
         return a.level == b.level && a.score == b.score && a.color == b.color && a.costs == b.costs;
     }
+
+    friend bool operator < (const NormalCard& a, const NormalCard& b) {
+        return a.level < b.level;
+    }
 };
 
 class NobelCard {
