@@ -36,6 +36,7 @@ int main()
 
 //    frontend();
 
-    Frontend f(board);
+    Frontend f;
+    f.work();
     return 0;
 }

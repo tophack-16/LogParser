@@ -11,12 +11,16 @@
 #include "Board.h"
 #include "GemCluster.h"
 #include <algorithm>
+#include <cassert>
+#include <fstream>
 
 using namespace std;
 
 class Frontend {
 public:
+    int round, turn;
     Board board;
+
     WINDOW* users[3];
     WINDOW* status[3];
     WINDOW* cards[3][4];
@@ -25,6 +29,13 @@ public:
     WINDOW* nobles;
     int row, col;
 
+    short customColorCnt;
+    short customPairCnt;
+    short gray;
+    short bgdPair;
+    map<string, short> gemPairMap;
+    map<string, short> costPairMap;
+
     map<string, int> color2int;
 
     static const int userHeight, userWidth;
@@ -32,22 +43,89 @@ public:
     static const int statusHeight, statusWidth;
     static const int cardHeight, cardWidth;
 
-    Frontend(const Board& board): board(board) {
+    Frontend() {
+        round = 1;
+        turn = 1;
+
+        customColorCnt = 9;
+        customPairCnt = 1;
         color2int["red"] = COLOR_RED;
+        gemPairMap["red"] = customPairCnt;
+        init_pair(customPairCnt, COLOR_RED, COLOR_RED);
+        customPairCnt++;
+
         color2int["green"] = COLOR_GREEN;
+        gemPairMap["green"] = customPairCnt;
+        init_pair(customPairCnt, COLOR_GREEN, COLOR_GREEN);
+        customPairCnt++;
+
         color2int["blue"] = COLOR_BLUE;
+        gemPairMap["blue"] = customPairCnt;
+        init_pair(customPairCnt, COLOR_BLUE, COLOR_BLUE);
+        customPairCnt++;
+
         color2int["gold"] = COLOR_YELLOW;
+        gemPairMap["gold"] = customPairCnt;
+        init_pair(customPairCnt, COLOR_YELLOW, COLOR_YELLOW);
+        customPairCnt++;
+
         color2int["white"] = COLOR_WHITE;
+        gemPairMap["white"] = customPairCnt;
+        init_pair(customPairCnt, COLOR_WHITE, COLOR_WHITE);
+        customPairCnt++;
+
         color2int["black"] = COLOR_BLACK;
+        gemPairMap["black"] = customPairCnt;
+        init_pair(customPairCnt, COLOR_BLACK, COLOR_BLACK);
+        customPairCnt++;
 
         initscr();
         noecho();
         raw();
+        keypad(stdscr, TRUE);
         getmaxyx(stdscr, row, col);
         start_color();
-        refresh();  // before refreshing windows
 
-        fill(board);
+        gray = customColorCnt++;
+//        assert(init_color(gray, 500, 500, 500) == OK);
+        bgdPair = customPairCnt++;
+        assert(init_pair(bgdPair, COLOR_WHITE, COLOR_MAGENTA) == OK);
+        bkgd(COLOR_PAIR(bgdPair));
+
+        refresh();  // before refreshing windows
+    }
+
+    void work() {
+        while (true) {
+            string filename = "output/board_round_" + to_string(round) + "_turn_" + to_string(turn) + ".json";
+//            assert(filename == "output/board_round_1_turn_1.json");
+//            std::ifstream f;
+//            //prepare f to throw if failbit gets set
+//            std::ios_base::iostate exceptionMask = f.exceptions() | std::ios::failbit;
+//            f.exceptions(exceptionMask);
+//            try {
+//                f.open(filename);
+//            }
+//            catch (std::ios_base::failure& e) {
+//                break;
+//            }
+            ifstream f(filename);
+            if (!f.good()) break;
+            string input, line;
+            while (getline(f, line)) input += line;
+            Json::Reader reader;
+            Json::Value value;
+            reader.parse(input, value);
+            board = Board(value);
+            fill(board);
+            int ch;
+            if ((ch = getch()) == KEY_F(2)) break;
+            turn++;
+            if (turn == 4) {
+                turn = 1;
+                round++;
+            }
+        }
     }
 
     void fill(const Board& board) {
@@ -55,6 +133,32 @@ public:
         // users
         for (int i = 0; i < 3; i++) {
             users[i] = create_newwin(userHeight, userWidth, frameMargin + i * userHeight, left);
+            assert(board.players.size() >= 3);
+            mvwprintw(users[i], 1, 1, board.players[i].name.c_str());
+            string score = to_string(board.players[i].score);
+            while (score.size() < 3) score = "0" + score;
+            mvwprintw(users[i], 1, userWidth - 5, score.c_str());
+            // Gems
+            mvwprintw(users[i], userHeight - 3, 1, "G ");
+            for (string color: GemCluster::colors) {
+                wattron(users[i], COLOR_PAIR(gemPairMap[color]));
+                wprintw(users[i], to_string(color2int[color]).c_str());
+                wattroff(users[i], COLOR_PAIR(gemPairMap[color]));
+            }
+            mvwprintw(users[i], userHeight - 2, 1, "B ");
+            for (string color: GemCluster::colors) {
+                wattron(users[i], COLOR_PAIR(gemPairMap[color]));
+                wprintw(users[i], to_string(color2int[color]).c_str());
+                wattroff(users[i], COLOR_PAIR(gemPairMap[color]));
+            }
+            // colors
+            if (true) {
+                // blinking
+                attron(A_BLINK);
+                box(users[i], 0, 0);
+                attroff(A_BLINK);
+            }
+            wrefresh(users[i]);
         }
         left += userWidth + frameMargin;
         // status
@@ -78,14 +182,13 @@ public:
                 cards[i][j] = create_newwin(cardHeight, cardWidth,
                         frameMargin + i * cardHeight,
                         left + j * cardWidth, true);
+                wrefresh(cards[i][j]);
                 if (idx > cardsVec.size() || cardsVec[idx].level != i + 1) continue;
                 // color
-                int color = color2int[cardsVec[idx].color_str];
-                init_pair(color + 1, COLOR_MAGENTA, color);
-                wattron(cards[i][j], COLOR_PAIR(color + 1));
+                wattron(cards[i][j], COLOR_PAIR(gemPairMap[cardsVec[idx].color_str]));
 //                mvwprintw(cards[i][j], 1, 1, to_string(color2int[cardsVec[idx].color_str]).c_str());
                 mvwprintw(cards[i][j], 1, 1, cardsVec[idx].color_str.c_str());
-                wattroff(cards[i][j], COLOR_PAIR(color + 1));
+                wattroff(cards[i][j], COLOR_PAIR(gemPairMap[cardsVec[idx].color_str]));
                 // score
                 if (cardsVec[idx].score > 0)
                     mvwprintw(cards[i][j], 1, cardWidth - 3,
@@ -97,16 +200,32 @@ public:
                     int color = color2int[iter.first];
                     init_pair(color + 1, color, color);
                     wattron(cards[i][j], COLOR_PAIR(color + 1));
-                    mvwprintw(cards[i][j], cardHeight - 2, printedGems + 1, " ");
+                    mvwprintw(cards[i][j], cardHeight - 3, printedGems + 1, " ");
                     wattroff(cards[i][j], COLOR_PAIR(color + 1));
+                    mvwprintw(cards[i][j], cardHeight - 2, printedGems + 1, to_string(iter.second).c_str());
                     printedGems++;
                 }
                 idx++;
                 wrefresh(cards[i][j]);
             }
         }
+        left += 3 * cardWidth;
 
-        getch();
+        // pile
+        left += frameMargin;
+        for (int i = 0; i < 3; i++) {
+            pile[i] = create_newwin(cardHeight, cardWidth,
+                                    frameMargin + i * cardHeight,
+                                    left, false);
+            mvwprintw(pile[i], 1, 1, to_string(i + 1).c_str());
+        }
+        mvprintw(row-3, 1, "Round: ");
+        printw((to_string(round) + "\n").c_str());
+        mvprintw(row-2, 1, "Turn: ");
+        printw((to_string(turn) + "\n").c_str());
+        mvprintw(row-1, 1, "Press F1 for next state, F2 to exit");
+
+        refresh();
     }
 
     ~Frontend() {
@@ -121,6 +240,7 @@ public:
             box(local_win, 0 , 0);		/* 0, 0 gives default characters
 					 * for the vertical and horizontal
 					 * lines			*/
+        wbkgd(local_win, COLOR_PAIR(bgdPair));
         wrefresh(local_win);		/* Show that box 		*/
 
         return local_win;
