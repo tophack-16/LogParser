@@ -56,12 +56,15 @@ public:
         return false;
     }
 
-    GemCluster getCapacity() {
+    GemCluster getGain() const {
         GemCluster cap;
         for (int i = 0; i < purchased_cards.size(); i++)
             cap.gems[purchased_cards[i].color_str]++;
-        cap += gems;
         return cap;
+    }
+
+    GemCluster getCapacity() const {
+        return gems + getGain();
     }
 
     Json::Value toJson() {

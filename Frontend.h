@@ -31,8 +31,7 @@ public:
 
     short customColorCnt;
     short customPairCnt;
-    short gray;
-    short bgdPair;
+    short bgd, bgdPair;
     map<string, short> gemPairMap;
     map<string, short> costPairMap;
 
@@ -46,69 +45,68 @@ public:
     Frontend() {
         round = 1;
         turn = 1;
-
-        customColorCnt = 9;
-        customPairCnt = 1;
-        color2int["red"] = COLOR_RED;
-        gemPairMap["red"] = customPairCnt;
-        init_pair(customPairCnt, COLOR_RED, COLOR_RED);
-        customPairCnt++;
-
-        color2int["green"] = COLOR_GREEN;
-        gemPairMap["green"] = customPairCnt;
-        init_pair(customPairCnt, COLOR_GREEN, COLOR_GREEN);
-        customPairCnt++;
-
-        color2int["blue"] = COLOR_BLUE;
-        gemPairMap["blue"] = customPairCnt;
-        init_pair(customPairCnt, COLOR_BLUE, COLOR_BLUE);
-        customPairCnt++;
-
-        color2int["gold"] = COLOR_YELLOW;
-        gemPairMap["gold"] = customPairCnt;
-        init_pair(customPairCnt, COLOR_YELLOW, COLOR_YELLOW);
-        customPairCnt++;
-
-        color2int["white"] = COLOR_WHITE;
-        gemPairMap["white"] = customPairCnt;
-        init_pair(customPairCnt, COLOR_WHITE, COLOR_WHITE);
-        customPairCnt++;
-
-        color2int["black"] = COLOR_BLACK;
-        gemPairMap["black"] = customPairCnt;
-        init_pair(customPairCnt, COLOR_BLACK, COLOR_BLACK);
-        customPairCnt++;
-
         initscr();
         noecho();
         raw();
         keypad(stdscr, TRUE);
         getmaxyx(stdscr, row, col);
         start_color();
+        refresh();
+        getch();
+        initColors();
+        refresh();  // before refreshing small windows
+    }
 
-        gray = customColorCnt++;
+    void initColors() {
+        customColorCnt = 9;
+        customPairCnt = 1;
+
+        bgd = COLOR_MAGENTA;
 //        assert(init_color(gray, 500, 500, 500) == OK);
         bgdPair = customPairCnt++;
         assert(init_pair(bgdPair, COLOR_WHITE, COLOR_MAGENTA) == OK);
-        bkgd(COLOR_PAIR(bgdPair));
+        assert(bkgd(COLOR_PAIR(bgdPair)) == OK);
 
-        refresh();  // before refreshing windows
+        color2int["red"] = COLOR_RED;
+        gemPairMap["red"] = customPairCnt++;
+        assert(init_pair(gemPairMap["red"], COLOR_RED, COLOR_RED) == OK);
+        costPairMap["red"] = customPairCnt++;
+        assert(init_pair(costPairMap["red"], bgd, COLOR_RED) == OK);
+
+        color2int["green"] = COLOR_GREEN;
+        gemPairMap["green"] = customPairCnt++;
+        assert(init_pair(gemPairMap["green"], COLOR_GREEN, COLOR_GREEN) == OK);
+        costPairMap["green"] = customPairCnt++;
+        assert(init_pair(costPairMap["green"], bgd, COLOR_GREEN) == OK);
+
+        color2int["blue"] = COLOR_BLUE;
+        gemPairMap["blue"] = customPairCnt++;
+        assert(init_pair(gemPairMap["blue"], COLOR_BLUE, COLOR_BLUE) == OK);
+        costPairMap["blue"] = customPairCnt++;
+        assert(init_pair(costPairMap["blue"], bgd, COLOR_BLUE) == OK);
+
+        color2int["gold"] = COLOR_YELLOW;
+        gemPairMap["gold"] = customPairCnt++;
+        assert(init_pair(gemPairMap["gold"], COLOR_YELLOW, COLOR_YELLOW) == OK);
+        costPairMap["gold"] = customPairCnt++;
+        assert(init_pair(costPairMap["gold"], bgd, COLOR_YELLOW) == OK);
+
+        color2int["white"] = COLOR_WHITE;
+        gemPairMap["white"] = customPairCnt++;
+        assert(init_pair(gemPairMap["white"], COLOR_WHITE, COLOR_WHITE) == OK);
+        costPairMap["white"] = customPairCnt++;
+        assert(init_pair(costPairMap["white"], bgd, COLOR_WHITE) == OK);
+
+        color2int["black"] = COLOR_BLACK;
+        gemPairMap["black"] = customPairCnt++;
+        assert(init_pair(gemPairMap["black"], COLOR_BLACK, COLOR_BLACK) == OK);
+        costPairMap["black"] = customPairCnt++;
+        assert(init_pair(costPairMap["black"], bgd, COLOR_BLACK) == OK);
     }
 
     void work() {
         while (true) {
             string filename = "output/board_round_" + to_string(round) + "_turn_" + to_string(turn) + ".json";
-//            assert(filename == "output/board_round_1_turn_1.json");
-//            std::ifstream f;
-//            //prepare f to throw if failbit gets set
-//            std::ios_base::iostate exceptionMask = f.exceptions() | std::ios::failbit;
-//            f.exceptions(exceptionMask);
-//            try {
-//                f.open(filename);
-//            }
-//            catch (std::ios_base::failure& e) {
-//                break;
-//            }
             ifstream f(filename);
             if (!f.good()) break;
             string input, line;
@@ -134,29 +132,34 @@ public:
         for (int i = 0; i < 3; i++) {
             users[i] = create_newwin(userHeight, userWidth, frameMargin + i * userHeight, left);
             assert(board.players.size() >= 3);
+            // name
             mvwprintw(users[i], 1, 1, board.players[i].name.c_str());
+            // score
             string score = to_string(board.players[i].score);
             while (score.size() < 3) score = "0" + score;
             mvwprintw(users[i], 1, userWidth - 5, score.c_str());
+            /*
             // Gems
             mvwprintw(users[i], userHeight - 3, 1, "G ");
             for (string color: GemCluster::colors) {
-                wattron(users[i], COLOR_PAIR(gemPairMap[color]));
-                wprintw(users[i], to_string(color2int[color]).c_str());
-                wattroff(users[i], COLOR_PAIR(gemPairMap[color]));
+                wattron(users[i], COLOR_PAIR(costPairMap[color]));
+                wprintw(users[i], to_string(board.players[i].gems.gems.at(color)).c_str());
+                wattroff(users[i], COLOR_PAIR(costPairMap[color]));
             }
+            // Gain
+            GemCluster gain = board.players[i].getGain();
             mvwprintw(users[i], userHeight - 2, 1, "B ");
             for (string color: GemCluster::colors) {
-                wattron(users[i], COLOR_PAIR(gemPairMap[color]));
-                wprintw(users[i], to_string(color2int[color]).c_str());
-                wattroff(users[i], COLOR_PAIR(gemPairMap[color]));
-            }
+                wattron(users[i], COLOR_PAIR(costPairMap[color]));
+                wprintw(users[i], to_string(gain.gems[color]).c_str());
+                wattroff(users[i], COLOR_PAIR(costPairMap[color]));
+            }*/
             // colors
-            if (true) {
+            if (i + 1 == turn) {
                 // blinking
-                attron(A_BLINK);
+                wattron(users[i], A_BLINK);
                 box(users[i], 0, 0);
-                attroff(A_BLINK);
+                wattroff(users[i], A_BLINK);
             }
             wrefresh(users[i]);
         }
