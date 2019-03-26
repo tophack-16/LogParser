@@ -52,7 +52,6 @@ public:
         getmaxyx(stdscr, row, col);
         start_color();
         refresh();
-        getch();
         initColors();
         refresh();  // before refreshing small windows
     }
@@ -68,11 +67,14 @@ public:
         assert(bkgd(COLOR_PAIR(bgdPair)) == OK);
 
         color2int["red"] = COLOR_RED;
-        gemPairMap["red"] = customPairCnt++;
-        assert(init_pair(gemPairMap["red"], COLOR_RED, COLOR_RED) == OK);
-        costPairMap["red"] = customPairCnt++;
-        assert(init_pair(costPairMap["red"], bgd, COLOR_RED) == OK);
+        gemPairMap["red"] = customPairCnt;
+        assert(init_pair(customPairCnt, COLOR_RED, COLOR_RED) == OK);
+        customPairCnt++;
+        costPairMap["red"] = customPairCnt;
+        assert(init_pair(customPairCnt, bgd, COLOR_RED) == OK);
+        customPairCnt++;
 
+        /*
         color2int["green"] = COLOR_GREEN;
         gemPairMap["green"] = customPairCnt++;
         assert(init_pair(gemPairMap["green"], COLOR_GREEN, COLOR_GREEN) == OK);
@@ -102,6 +104,7 @@ public:
         assert(init_pair(gemPairMap["black"], COLOR_BLACK, COLOR_BLACK) == OK);
         costPairMap["black"] = customPairCnt++;
         assert(init_pair(costPairMap["black"], bgd, COLOR_BLACK) == OK);
+         */
     }
 
     void work() {
@@ -200,11 +203,10 @@ public:
                 int printedGems = 0;
                 for (auto iter: cardsVec[idx].costs.gems) {
                     if (iter.second == 0) continue;
-                    int color = color2int[iter.first];
-                    init_pair(color + 1, color, color);
-                    wattron(cards[i][j], COLOR_PAIR(color + 1));
+                    int colorPair = gemPairMap[iter.first];
+                    wattron(cards[i][j], COLOR_PAIR(colorPair));
                     mvwprintw(cards[i][j], cardHeight - 3, printedGems + 1, " ");
-                    wattroff(cards[i][j], COLOR_PAIR(color + 1));
+                    wattroff(cards[i][j], COLOR_PAIR(colorPair));
                     mvwprintw(cards[i][j], cardHeight - 2, printedGems + 1, to_string(iter.second).c_str());
                     printedGems++;
                 }
